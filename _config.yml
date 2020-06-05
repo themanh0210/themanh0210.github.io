@@ -4,7 +4,7 @@
 title: The Manh
 
 # Short description of your site
-description: A virtual proof that I'm awesome
+description:
 
 # Your name to show in the footer
 author: The Manh
@@ -12,11 +12,11 @@ author: The Manh
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+#   About Me: "aboutme"
+#   Resources:
+#     - Beautiful Jekyll: "https://beautifuljekyll.com"
+#     - Learn markdown: "https://www.markdowntutorial.com/"
+#   Author's home: "https://deanattali.com"
 
 # --- Logo --- #
 
@@ -39,9 +39,9 @@ round-avatar: true
 # If you don't want to show a link to an RSS feed, set rss to "false".
 social-network-links:
   email: "manhnt0210@gmail.com"
-  facebook: "https://www.facebook.com/nguyenthemanh1997"
-  github: daattali
-  twitter: daattali
+  facebook: nguyenthemanh1997
+  github: manhbnt-0960
+#   twitter: daattali
   rss: true
 #  reddit: yourname
 #  linkedin: daattali
