@@ -42,7 +42,7 @@ social-network-links:
   facebook: nguyenthemanh1997
   github: manhbnt-0960
 #   twitter: daattali
-  rss: true
+#   rss: true
 #  reddit: yourname
 #  linkedin: daattali
 #  xing: yourname
@@ -68,7 +68,7 @@ share-links-active:
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-# url-pretty: "MyWebsite.com"
+url-pretty: "MyWebsite.com"
 
 # Create a "tags" index page and make tags on each post clickable
 link-tags: true
