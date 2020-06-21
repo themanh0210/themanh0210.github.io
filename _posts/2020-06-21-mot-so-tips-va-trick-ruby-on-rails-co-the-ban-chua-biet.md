@@ -4,7 +4,7 @@ title: MỘT SỐ TIPS VÀ TRICKS RUBY ON RAILS CÓ THỂ BẠN CHƯA BIẾT
 subtitle:
 gh-repo:
 gh-badge:
-tags: [ruby on rails] [tips and trick]
+tags: [ruby on rails, tips and trick]
 comments: true
 ---
 
