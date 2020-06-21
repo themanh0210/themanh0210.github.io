@@ -2,8 +2,7 @@
 layout: post
 title: MỘT SỐ TIPS VÀ TRICKS RUBY ON RAILS CÓ THỂ BẠN CHƯA BIẾT
 subtitle:
-gh-repo:
-gh-badge:
+cover-img: /assets/img/path.jpg
 tags: [ruby on rails, tips and trick]
 comments: true
 ---
@@ -16,6 +15,7 @@ Hash['key1', 'value1', 'key2', 'value2']
 
 => {"key1"=>"value1", "key2"=>"value2"}
 ```
+<br>
 # Lambda viết tắt là ->
 Dấu -> được sử dụng thường xuyên để thay thế cho Lambda.
 ```ruby
@@ -27,6 +27,7 @@ a = -> (v) { v + 1 }
 a.call(2)
 # => 3
 ```
+<br>
 # Double star (**)
 Double star là một mẹo nhỏ trong Ruby. Mời các bạn xem ví dụ sau để hiểu thêm chi tiết:
 ```ruby
@@ -53,6 +54,7 @@ Truyền vào nhiều tham số + tham số dạng hash:
 my_method(1, 2, 3, 4, a: 1, b: 2)
 # => [1, [2, 3, 4], {:a=>1, :b=>2}]
 ```
+<br>
 # Xử lý đối tượng đơn lẻ và mảng theo cùng một cách
 Đôi khi bạn có thể muốn cung cấp tùy chọn chấp nhận một đối tượng hoặc một mảng đối tượng. Thay vì kiểm tra loại đối tượng bạn đã nhận được, bạn có thể sử dụng [* something] hoặc Array (something).
 
@@ -71,6 +73,7 @@ Tương tự như vậy nhưng sử dụng Array (...).
 Array(stuff).each { |s| s }
 Array(stuff_arr).each { |s| s }
 ```
+<br>
 # Double Pipe Equals ||=
 Double Pipe Equals là một công cụ tuyệt vời để viết mã ngắn gọn và súc tích.
 
@@ -89,6 +92,7 @@ def total
 end
 ```
 Bây giờ bạn có thể có gọi phương thức total để nhận được tổng giá trị, nhưng nó sẽ chỉ được tính duy nhất vào lần đầu tiên.
+<br>
 # Tham số Hash bắt buộc
 Điều này đã được giới thiệu từ Ruby 2.0. Thay vì chỉ định nghĩa một phương thức nhận tham số là Hash như sau:
 
@@ -126,6 +130,7 @@ hash = { a: 1, b: 2, c: 3 }
 my_method(hash)
 # => [1, 2, 3]
 ```
+<br>
 # Tạo mảng bảng chữ cái hoặc số
 Bạn có thể muốn tạo một danh sách các số hoặc đặt toàn bộ bảng chữ cái bên trong một mảng. Trong Ruby bạn có thể sử dụng ranges để làm điều đó. A to Z
 ```ruby
@@ -138,6 +143,7 @@ Bạn có thể muốn tạo một danh sách các số hoặc đặt toàn bộ
 (1..10).to_a
 # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
+<br>
 # Tap
 Tap là một phương thức nhỏ giúp code của bạn dễ đọc hơn cũng như tránh trùng lặp code. Hãy theo dõi ví dụ dưới đây để biết thêm chi tiết:
 
@@ -168,6 +174,7 @@ def my_method
   end
 end
 ```
+<br>
 # Giá trị mặc định cho Hash (Bad trick)
 Theo mặc định, khi cố gắng truy cập một giá trị không được định nghĩa trong một Hash, bạn sẽ nhận được nil. Bạn có thể thay đổi điều này khi khởi tạo Hash.
 
@@ -194,6 +201,7 @@ a = Hash.new('lolcat')
 a[:a]
 # => "lolcat"
 ```
+<br>
 # Hash#dig
 Đã bao nhiêu lần bạn làm một cái gì đó tương tự như thế này:
 ```ruby
@@ -206,6 +214,7 @@ Dig tương tự như &. cho Hash Object. Vì vậy, bạn có thể viết lạ
 ```ruby
 if params.dig(:user, :address, :somewhere_deep)
 ```
+<br>
 # Object#presence_in
 Nó cho phép bạn thay thế các điều kiện (thường là ternary) bằng cách gọi một phương thức đơn giản. Ví dụ: Code của bạn trông như sau:
 
@@ -222,6 +231,7 @@ Chuyển thành thế này nhìn có tuyệt hơn không?
 params[:sort].presence_in(sort_options) || :by_date
 ```
 Trên đây là những mẹo nhỏ khi code ruby và rails hi vọng giúp ích được cho các bạn trong quá trình lập trình.
+<br>
 # NGUỒN THAM KHẢO
 https://devblast.com/b/ruby-tricks-improve-code<br>
 https://hackernoon.com/5-ruby-on-rails-tips-you-probably-dont-know-8b80b4a0890f
