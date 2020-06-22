@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MỘT SỐ TIPS VÀ TRICKS RUBY ON RAILS CÓ THỂ BẠN CHƯA BIẾT
+title: Một số tips và tricks Ruby On Rails có thể bạn chưa biết
 subtitle:
 cover-img: /assets/img/path.jpg
 tags: [ruby on rails, tips and trick]
