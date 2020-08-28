@@ -6,7 +6,7 @@ cover-img: /assets/img/path.jpg
 tags: [CI]
 ---
 # Bước 1: Enable CI 
-truy cập https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy <br>
+truy cập [link](https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy) <br>
 click enable CI cho project tương ứng
 # Bước 2: Thêm gem
 - thêm gem sau nếu chưa có vào Gemfile:
