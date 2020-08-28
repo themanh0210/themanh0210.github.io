@@ -9,25 +9,30 @@ tags: [CI]
 truy cập https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy <br>
 click enable CI cho project tương ứng
 # Bước 2: Thêm gem
-- thêm những gem sau nếu chưa có vào Gemfile:
+- thêm gem sau nếu chưa có vào Gemfile:
 
 ```ruby
 group :development, :test do
-  gem "bundle-audit"
-  gem "rails_best_practices"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
   gem "rspec-rails", "~> 4.0.1"
 end
 ```
-
-```barsh
+tạo file **config/database.yml**
+```
+cp config/database.yml.example config/database.yml
+```
+sau đó 
+```
 bundle install
 rails generate rspec:install
 ```
+chạy `yarn install --ignore-engines` nếu Yarn packages are out of date 
+
 
 # Bước 3: Tạo file .sun-ci.yml & database-ci.yml
+check image ruby hiện có tại [đây](https://hub.docker.com/r/sunci/ruby/builds)
 ## .sun-ci.yml:
 
 ```ruby
@@ -56,22 +61,14 @@ jobs:
   - image: mysql:5.7.22
     name: mysql
     environment:
-      MYSQL_DATABASE: database_name
-      MYSQL_USER: mysql_user
-      MYSQL_PASSWORD: mysql_password
-      MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: db_test
+      MYSQL_USER: user_test
+      MYSQL_PASSWORD: password_test
+      MYSQL_ROOT_PASSWORD: password_test
   before_script:
   - bundle _2.1.2_ install --path vendor/bundle
   script:
   - bundle _2.1.2_ exec rspec
-
-- name: test:bundle_audit
-  stage: test
-  image: sunci/ruby:2.7.0
-  before_script:
-  - bundle _2.1.2_ install --path vendor/bundle
-  script:
-  - bundle exec bundle audit check --update
 
 - name: test:rubocop
   stage: test
@@ -80,14 +77,6 @@ jobs:
   - bundle _2.1.2_ install --path vendor/bundle
   script:
   - bundle exec rubocop --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter --no-color --out .framgia-ci-reports/rubocop.xml app/ lib/
-
-- name: test:rails_best_practice
-  stage: test
-  image: sunci/ruby:2.7.0
-  before_script:
-  - bundle _2.1.2_ install --path vendor/bundle
-  script:
-  - bundle exec rails_best_practices -e "db/schema.rb,db/migrate,vendor,app/models/application_record.rb" app/ lib/ -c .rails_best_practices.yml
 ```
 
 ## database-ci.yml
@@ -100,8 +89,8 @@ default: &default
 
 test:
   <<: *default
-  database: database_name
+  database: db_test
   host: mysql_test
-  username: mysql_user
-  password: mysql_password
+  username: user_test
+  password: password_test
 ```
