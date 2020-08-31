@@ -6,7 +6,7 @@ cover-img: /assets/img/path.jpg
 tags: [CI]
 ---
 # Bước 1: Enable CI 
-truy cập https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy <br>
+truy cập tại [đây](https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy) <br>
 click enable CI cho project tương ứng
 # Bước 2: Tạo file .sun-ci.yml & database-ci.yml
 check image ruby hiện có tại [đây](https://hub.docker.com/r/sunci/ruby/builds) sau đó thay thế image tương ứng<br>
