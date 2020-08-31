@@ -6,33 +6,11 @@ cover-img: /assets/img/path.jpg
 tags: [CI]
 ---
 # Bước 1: Enable CI 
-truy cập [link](https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy) <br>
+truy cập https://ci.sun-asterisk.com/account/github/repositories?scm=github&namespace=awesome-academy <br>
 click enable CI cho project tương ứng
-# Bước 2: Thêm gem
-- thêm gem sau nếu chưa có vào Gemfile:
-
-```ruby
-group :development, :test do
-  gem "rubocop", "~> 0.74.0", require: false
-  gem "rubocop-checkstyle_formatter", require: false
-  gem "rubocop-rails", "~> 2.3.2", require: false
-  gem "rspec-rails", "~> 4.0.1"
-end
-```
-tạo file **config/database.yml**
-```
-cp config/database.yml.example config/database.yml
-```
-sau đó 
-```
-bundle install
-rails generate rspec:install
-```
-chạy `yarn install --ignore-engines` nếu Yarn packages are out of date 
-
-
-# Bước 3: Tạo file .sun-ci.yml & database-ci.yml
-check image ruby hiện có tại [đây](https://hub.docker.com/r/sunci/ruby/builds)
+# Bước 2: Tạo file .sun-ci.yml & database-ci.yml
+check image ruby hiện có tại [đây](https://hub.docker.com/r/sunci/ruby/builds) sau đó thay thế image tương ứng<br>
+> manhbnt/ruby:2.7.1 nếu ruby ver 2.7.1 
 ## .sun-ci.yml:
 
 ```ruby
@@ -45,7 +23,7 @@ stages:
 jobs:
 - name: build:prepare
   stage: build
-  image: sunci/ruby:2.7.0 #thay thế bản ruby tương ứng, ví dụ sunci/ruby:2.6.5, manhbnt/ruby:2.7.1 trường hợp ruby ver 2.7.1
+  image: sunci/ruby:2.7.0
   script:
   - cp database-ci.yml config/database.yml
   - bundle _2.1.2_ install --path vendor/bundle
@@ -59,9 +37,9 @@ jobs:
   image: sunci/ruby:2.7.0
   services:
   - image: mysql:5.7.22
-    name: mysql
+    name: mysql_test
     environment:
-       MYSQL_DATABASE: db_test
+      MYSQL_DATABASE: db_test
       MYSQL_USER: user_test
       MYSQL_PASSWORD: password_test
       MYSQL_ROOT_PASSWORD: password_test
@@ -83,14 +61,15 @@ jobs:
 ```ruby
 default: &default
   adapter: mysql2
-  encoding: utf8
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  host: mysql_test
   port: 3306
   pool: 5
 
 test:
   <<: *default
   database: db_test
-  host: mysql_test
   username: user_test
   password: password_test
 ```
